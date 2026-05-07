@@ -1,46 +1,17 @@
-# The Bayesian-Kelly Pareto Frontier
+# Bayesian-Kelly Decision Rule
 
-### Optimal Transaction Acceptance under Information Uncertainty
+**Simple rule for accepting or rejecting deals under uncertainty:**
 
-## 1. The Core Signal
-
-This repository introduces a rigorous derivation for the critical acceptance threshold in binary outcomes under uncertainty. By integrating the **Kelly Criterion** with a **Bayesian Beta-distribution** $(\alpha, \beta)$ update mechanism, we define a sharp boundary for growth.
-
-The fundamental inequality for transaction acceptance is defined as:
-
-$$b > \frac{\beta}{\alpha}$$
+**Accept the transaction if**  
+`b > β / α`
 
 Where:
+- `b` = your net profit ratio = (Revenue - Cost) / Cost
+- `α` = number of past successes (wins)
+- `β` = number of past failures (frictions, losses)
 
-- **$b$**: The profit-to-loss ratio (odds).
-    
-- **$\alpha$**: The count of successful outcomes (plus prior).
-    
-- **$\beta$**: The count of failed outcomes (plus prior).
-    
+### Real-World Example: Fishing → Restaurant
+- Alice (fisher): b ≈ 0.87 → needs β/α < 0.87 to sell profitably
+- Bob (restaurant): b ≈ 3.0 → can accept much higher friction
 
-## 2. The Pareto Frontier
-
-Unlike traditional models that require heavy Monte Carlo simulations, this model identifies the **Analytical Pareto Frontier** where the expected growth rate $\mathbb{E}[\ln(G)]$ transitions from negative to positive. It represents the "Path of Least Action" for capital preservation and accumulation.
-
-## 3. Key Features
-
-- **No-Work Elegance**: A closed-form solution that bypasses "Baroque" computational complexity.
-    
-- **Information-Theoretic Rigor**: Grounded in Shannon entropy and the Kelly growth logic.
-    
-- **Dynamic Updating**: The threshold self-corrects as new data $(\alpha, \beta)$ is ingested.
-    
-
-## 4. Repository Contents
-
-- `manuscript.pdf`: The full theoretical derivation and proof.
-    
-- `src/`: Reference implementation (Python/Julia) to visualize the growth boundary.
-    
-- `latex/`: Source files for the manuscript.
-    
-
-## 5. Licensing & Attribution
-
-This work is licensed under **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
+This explains why supply chains work even when both parties are rational.
